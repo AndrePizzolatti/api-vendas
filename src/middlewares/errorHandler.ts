@@ -3,10 +3,9 @@ import { NextFunction, Request, Response } from 'express';
 
 const errorHandler = (
   error: Error,
-  _request: Request,
+  request: Request,
   response: Response,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _next: NextFunction,
+  next: NextFunction,
 ): Response => {
   if (error instanceof AppError) {
     return response.status(error.statusCode).json({
