@@ -11,7 +11,7 @@ class Product {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column('string')
   name: string;
 
   @Column('decimal')
