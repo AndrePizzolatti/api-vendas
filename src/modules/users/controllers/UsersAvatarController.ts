@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import ListUserService from '../services/ListUserService';
-import ShowUserService from '../services/ShowUserService';
+import ShowUserService from '../services/ShowProfileService';
 import CreateUserService from '../services/CreateUserService';
 import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
 import AppError from '@shared/errors/AppError';

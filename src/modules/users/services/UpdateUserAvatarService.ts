@@ -15,7 +15,7 @@ class UpdateUserService {
   public async execute({ id, avatar }: IRequest): Promise<User> {
     const usersRepository = getCustomRepository(UserRepository);
 
-    const user = await usersRepository.findOne(id);
+    const user = await usersRepository.findById(id);
 
     if (!user) {
       throw new AppError('User not found');

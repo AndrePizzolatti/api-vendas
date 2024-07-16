@@ -13,17 +13,6 @@ const upload = multer(uploadConfig);
 
 usersRouter.get('/', auth, usersController.index);
 
-usersRouter.get(
-  '/:id',
-  auth,
-  celebrate({
-    [Segments.PARAMS]: {
-      id: Joi.string().uuid().required(),
-    },
-  }),
-  usersController.Show,
-);
-
 usersRouter.post(
   '/',
   celebrate({
@@ -34,22 +23,6 @@ usersRouter.post(
     },
   }),
   usersController.create,
-);
-
-usersRouter.put(
-  '/:id',
-  auth,
-  celebrate({
-    [Segments.BODY]: {
-      name: Joi.string().required(),
-      email: Joi.string().email().required(),
-      avatar: Joi.string().required(),
-    },
-    [Segments.PARAMS]: {
-      id: Joi.string().uuid().required(),
-    },
-  }),
-  usersController.update,
 );
 
 usersRouter.patch(
