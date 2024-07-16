@@ -3,7 +3,7 @@ import express from 'express';
 import 'express-async-errors';
 import cors from 'cors';
 import routes from './routes';
-import errorHandler from '@middlewares/errorHandler';
+import errorHandler from '@shared/http/middlewares/errorHandler';
 import '@shared/typeorm';
 import { errors } from 'celebrate';
 
