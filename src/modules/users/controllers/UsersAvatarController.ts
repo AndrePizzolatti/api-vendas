@@ -4,6 +4,7 @@ import ShowUserService from '../services/ShowProfileService';
 import CreateUserService from '../services/CreateUserService';
 import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
 import AppError from '@shared/errors/AppError';
+import { instanceToInstance } from 'class-transformer';
 
 export default class UserAvatarController {
   public async update(request: Request, response: Response): Promise<Response> {
@@ -18,6 +19,6 @@ export default class UserAvatarController {
 
     const user = await updateUserAvatar.execute({ id, avatar });
 
-    return response.json(user);
+    return response.json(instanceToInstance(user));
   }
 }
