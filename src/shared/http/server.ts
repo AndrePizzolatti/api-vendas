@@ -3,16 +3,19 @@ import 'dotenv/config';
 import express from 'express';
 import 'express-async-errors';
 import cors from 'cors';
-import routes from './routes';
-import errorHandler from '@shared/http/middlewares/errorHandler';
-import '@shared/typeorm';
 import { errors } from 'celebrate';
 import { pagination } from 'typeorm-pagination';
+import routes from './routes';
+import errorHandler from '@shared/http/middlewares/errorHandler';
+import rateLimiter from '@shared/http/middlewares/raterLimiter';
+import '@shared/typeorm';
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+app.use(rateLimiter);
 
 app.use(pagination);
 
